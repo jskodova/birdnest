@@ -1,7 +1,17 @@
 package com.birdnest.app.model;
+<<<<<<< Updated upstream
 
 import java.util.Objects;
 
+=======
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import java.util.Objects;
+import lombok.Data;
+
+@Data
+>>>>>>> Stashed changes
 public class Drone {
     private int serialNum;
     private String model;
@@ -26,7 +36,10 @@ public class Drone {
         return Objects.hash(serialNum, model, manufacturer, ipv4, ipv6, firmware, positionY, positionX, altitude);
     }
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     public int getSerialNum() {
         return serialNum;
     }
