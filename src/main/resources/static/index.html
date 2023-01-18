@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Drone Database</title>
+</head>
+<body>
+<h1>Drones from Database </h1>
+<table>
+    <tr>
+        <th>Serial Number</th>
+        <th>Manufacturer</th>
+        <th>Model</th>
+        <th>Position X</th>
+        <th>Position Y</th>
+        <th>Pilot Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+    </tr>
+    <?php
+      while($row = $resultSet->fetch_assoc())
+    {
+    ?>
+    <tr>
+        <td><?php echo $row["serialNumber"]; ?></td>
+        <td><?php echo $row["manufacturer"]; ?></td>
+        <td><?php echo $row["model"]; ?></td>
+        <td><?php echo $row["positionX"]; ?></td>
+        <td><?php echo $row["positionY"]; ?></td>
+        <td><?php echo $row["pilotId"]; ?></td>
+        <td><?php echo $row["firstName"]; ?></td>
+        <td><?php echo $row["lastName"]; ?></td>
+        <td><?php echo $row["phoneNumber"]; ?></td>
+        <td><?php echo $row["email"]; ?></td>
+    </tr>
+    <?php
+      }
+      ?>
+</table>
+</body>
+</html>
