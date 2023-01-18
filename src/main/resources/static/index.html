@@ -37,5 +37,43 @@
       }
       ?>
 </table>
+<canvas id="droneMap" width="500" height="500"></canvas>
+
+<script>
+  var c = document.getElementById("droneMap");
+  var ctx = c.getContext("2d");
+  ctx.beginPath();
+  ctx.arc(250,250,100,0,2*Math.PI);
+  ctx.stroke();
+
+  <?php
+      while($row = $resultSet->fetch_assoc())
+      {
+  ?>
+  var droneX = <?php echo $row["positionX"]; ?>;
+  var droneY = <?php echo $row["positionY"]; ?>;
+
+  //calculate distance of drone from center
+  var centerX = 250000;
+  var centerY = 250000;
+  var radius = 100000;
+
+  var dx = droneX - centerX;
+  var dy = droneY - centerY;
+  var distance = Math.sqrt(dx*dx + dy*dy);
+
+  //scale position of drone in relation to radius
+  var scaledX = (droneX - centerX)*radius/distance;
+  var scaledY = (droneY - centerY)*radius/distance;
+
+  //draw circle at drone's position
+  ctx.beginPath();
+  ctx.arc(250 + scaledX,250 + scaledY,5,0,2*Math.PI);
+  ctx.fillStyle = "#FF0000";
+  ctx.fill();
+  <?php
+      }
+  ?>
+</script>
 </body>
 </html>
